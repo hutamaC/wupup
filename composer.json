@@ -6,15 +6,24 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "baum/baum": "~1.1",
         "fideloper/proxy": "~3.3",
+        "hisorange/browser-detect": "^3.1",
+        "intervention/image": "^2.4",
+        "jacobcyl/ali-oss-storage": "^2.1",
+        "laramall/aliyun-dysms": "^1.0",
+        "laramall/laravel-system-info": "^1.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "overtrue/laravel-lang": "~3.0"
+        "laravelcollective/html": "^5.4.0",
+        "maatwebsite/excel": "2.*"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
+        "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "~6.0",
         "symfony/thanks": "^1.0"
     },
@@ -24,7 +33,10 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Phpstore\\":"Phpstore/",
+            "Install\\":"Install/",
+            "LaraStore\\":"LaraStore/"
         }
     },
     "autoload-dev": {

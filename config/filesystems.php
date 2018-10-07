@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => 'oss',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path('/'),
         ],
 
         'public' => [
@@ -61,6 +61,18 @@ return [
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
+        ],
+
+        'oss' => [
+            'driver'       => 'oss',
+            'access_id'    => env('ALIOSS_ID'),
+            'access_key'   => env('ALIOSS_KEY'),
+            'bucket'       => env('ALIOSS_BUCKET'),
+            'endpoint'     => env('ALIOSS_ENDPOINT'),
+            'cdnDomain'     => '', 
+            'ssl'           => false, 
+            'isCName'       => false,
+            'debug'         => false,
         ],
 
     ],
