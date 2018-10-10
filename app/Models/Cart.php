@@ -22,6 +22,7 @@ class Cart extends Model{
 								'session_id',
 								'thumb',
                                 'is_checked',
+                                'cat_sign',
 							  ];
 
 	

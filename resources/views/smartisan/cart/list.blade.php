@@ -37,13 +37,13 @@
 						<span class="attr-value">@{{cart.goods_attr}}</span>
 						</a>
 					</td>
-					<td>￥@{{cart.shop_price}}</td>
+					<td>@{{cart.cat_sign}}@{{cart.shop_price}}<br><span v-if="cart.cat_sign=='$'">(美元)</span></td>
 					<td>
 					    <span class="sub-btn" v-on:click="subCart(cart.id)"></span>
 						<span class="number">@{{cart.goods_number}}</span>
 						<span class="add-btn" v-on:click="addCart(cart.id)"></span>
 					</td>
-					<td>￥@{{cart.total}}</td>
+					<td>￥@{{cart.total}}<br><span v-if="cart.cat_sign=='$'">(经过汇率换算)</span></td>
 					<td class="del-btn-td">
 						<span class="del-btn" v-on:click="deleteCart(cart.id)"></span>
 					</td>

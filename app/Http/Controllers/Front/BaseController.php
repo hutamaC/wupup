@@ -83,6 +83,8 @@ class BaseController extends Controller
         // dd(request()->id );
         $this->view->checkout_url               = url('cart');
 
+        $this->view->keywords                   = request()->keywords;
+
         
 
         return $this->view;

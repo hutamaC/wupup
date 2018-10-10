@@ -19,7 +19,7 @@
 						<span class="red">@{{cart.goods_attr}}</span>
 						</p>
 						<p>
-							<span class="price">￥@{{cart.shop_price}}</span>
+							<span class="price">@{{cart.cat_sign}}@{{cart.shop_price}}</span>
 							<span>x</span>
 							<span>@{{cart.goods_number}}</span>
 						</p>

@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "baum/baum": "~1.1",
         "fideloper/proxy": "~3.3",
+        "hightman/xunsearch": "^1.4",
         "hisorange/browser-detect": "^3.1",
         "intervention/image": "^2.4",
         "jacobcyl/ali-oss-storage": "^2.1",

@@ -60,7 +60,14 @@ trait CartRepository{
     */
     public function total(){
 
-    	return $this->goods_number * $this->shop_price ;
+
+        $coe = 1;
+
+        if($this->cat_sign=='$'){
+            $coe = 7; 
+        }
+
+    	return $this->goods_number * $this->shop_price*$coe ;
     }
 
 

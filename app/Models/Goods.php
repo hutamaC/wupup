@@ -451,9 +451,12 @@ class Goods extends Model{
                          'session_id'       => session()->getId(),
                          'thumb'            => $this->gallery()->first() ? $this->gallery()->first()->thumb :'',
                          'is_checked'       => 1,
+                         'cat_sign'         => $this->category->cat_sign,
                      ];
 
             //库存够
+            //
+            // dd($data);
             if($goods_number <= $this->goods_number){
 
                 $cart   = Cart::create($data);

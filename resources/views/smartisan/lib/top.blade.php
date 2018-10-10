@@ -2,7 +2,7 @@
         <div class="wrapper">
             <div class="left-bar">
                 <div class="back-home divider">
-                    <em></em><a href="index.html">商城首页</a>
+                    <em></em><a href="{!!url('/')!!}">商城首页</a>
                 </div>
             </div>
             <div class="right-bar">
@@ -42,7 +42,7 @@
                     <div class="search-switch">
                         <div class="item">商品</div>
                     </div>
-                    <input class="search-txt" placeholder="搜流行宝贝" name="keywords">
+                    <input class="search-txt" placeholder="搜流行宝贝" name="keywords" value="{{$keywords?$keywords:""}}">
                     <button class="search-btn" onclick="checkForm();"></button>
                 </form>
                 <script>

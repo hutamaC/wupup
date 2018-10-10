@@ -118,6 +118,7 @@ class ShowForm extends Form{
         $sonCat             = $model->getChildren();
 
         $cat_id             = $this->id;
+        $cat_sign           = $model->cat_sign;
         $brand_id           = 0;
        
         $goods_attr_ids     = [];
@@ -254,6 +255,7 @@ class ShowForm extends Form{
                 'total',
                 'goods_cat',
                 'sonCat',
+                'cat_sign',
         ];
     }
 

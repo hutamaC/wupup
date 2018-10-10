@@ -181,7 +181,6 @@ trait UserRepository{
         $row                      = $this->cart()->get();
 
         foreach($row as $key=>$cart){
-
              $cart['thumb']       = $cart->goods->thumb();
              $cart['total']       = $cart->total();
              $cart['url']         = $cart->goods->url();

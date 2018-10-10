@@ -11,8 +11,26 @@ class Search extends Model
 
 {
 
-    public function __construct(){
+    protected $xs;
+
+    //模糊搜索
+    protected $fuzzy;
+
+    //同义词搜索
+    protected $synonyms;
+
+    public function __construct($configFile = 'goods',$fuzzy = true,$synonyms = true){
         $this->page             = new Page();
+
+
+        define ('XS_APP_ROOT', '/home/vagrant/xunsearch/sdk/php/app');
+
+        $this->xs = new \XS($configFile);
+        $this->fuzzy = $fuzzy;
+        $this->synonyms = $synonyms;
+
+        //获取搜索对象
+        $this->search = $this->xs->search;
 
     }
 
@@ -20,8 +38,12 @@ class Search extends Model
 
         $goods = new Goods();
 
+        $res = $this->doSearch($searchname);
 
-        $this->model = $goods->where('goods_name','like','%'.$searchname.'%');
+        $Arr = array_column($res,'id');
+
+
+        $this->model = $goods->whereIn('id',$Arr)->orWhere('goods_name','like','%'.$searchname.'%');
 
         $tag                = 'success';
         $info               = 'success';
@@ -49,6 +71,46 @@ class Search extends Model
         return $arr = ['data'=>compact($this->field())];
 
 
+
+    }
+
+    /**
+     * doSearch 使用xunsearch进行搜索
+     * @param  string $keyword 搜索词语 用户从表单填写的要搜索的内容
+     * @return array           搜索结果
+     */
+    public function doSearch($keyword)
+    {
+
+        $this->search
+        ->setFuzzy($this->fuzzy);
+
+        //设置搜索语句
+        // $this->search->setQuery($keyword);
+
+        //执行搜索，将搜索结果文档保存在 $docs 数组中
+        $docs =  $this->search->search($keyword);
+
+        if(count($docs) == 0){
+
+          // 没有找到搜索结果
+          return array();
+        }
+
+        //将结果一一取出
+        foreach($docs as $k => $doc){
+            if(!empty($doc)){
+
+                //取出搜索结果
+                $searchRes[] = $doc->getFields();
+
+                //获取每个词的权重
+                $searchRes[$k]['weight'] = $doc->weight();
+
+            }
+        }
+
+       return $searchRes;
 
     }
 

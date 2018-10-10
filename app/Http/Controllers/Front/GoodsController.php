@@ -56,7 +56,6 @@ class GoodsController extends BaseController
 
             return $this->view('404');
         }
-        
         $view                       = $this->view('goods');
         $view->goods                = $model;
         $view->measure_unit          = $model->getMeasure_unit();
@@ -71,6 +70,7 @@ class GoodsController extends BaseController
         $view->body_id              = 'goods_html';
         $view->rank                 = $common->get_rank_info($id);
         $view->tag_list             = $this->get_tag_list();
+        $view->cat_sign             = $model->category->cat_sign;
         //dd($model->field()->get()[0]);
 
         return $view;

@@ -32,7 +32,7 @@
 					<td>@{{item.field[5].field_value}}</td>
 					<td>@{{item.field[6].field_value}}</td>
 					<td>@{{item.field[7].field_value}}</td>
-					<td>￥@{{item.shop_price*7}}</td>
+					<td>@{{rows.cat_sign}}@{{item.shop_price}}</td>
 					<td class="col-xs-3">
 						<div class="">
 							<a v-bind:href="item.url" class="btn btn-default" v-if="item.goods_number!=0">查看详情</a>
