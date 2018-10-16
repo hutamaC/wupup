@@ -28,7 +28,7 @@
 			delOrder:function(id){
 				swal({
   						title: "确认删除？",
-  						text: "确认从数据库中删除该条记录？",
+  						text: "确定要取消这条订单吗？",
   						type: "warning",
   						showCancelButton: true,
   						confirmButtonColor: "#DD6B55",
@@ -51,7 +51,7 @@
 
 								if(content.tag == 'success'){
 									orderroot.rows = content;
-									swal("删除成功", "您已经成功在数据库中删除该条记录", "success");
+									swal("取消成功", "您已经成功取消了这条订单", "success");
 								}
 
 							}

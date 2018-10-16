@@ -40,8 +40,8 @@
                 </div>
             </div>
         </div>
-<!--         <div class="fatft-links">
-            <div class="wrapper">
+        <div class="fatft-links">
+            <div class="wrapper" style="width:1200px;margin-left:auto;margin-right:auto;">
                 <div class="col-link">
                     <div class="tit">购物指南</div>
                     <div class="link"><a href="">购物流程</a></div>
@@ -62,11 +62,9 @@
                     <div class="link"><a href="">微信支付</a></div>
                 </div>
                 <div class="col-link">
-                    <div class="tit">售后服务</div>
-                    <div class="link"><a href="">售后政策</a></div>
-                    <div class="link"><a href="">价格保护</a></div>
-                    <div class="link"><a href="">退单说明</a></div>
-                    <div class="link"><a href="">取消订单</a></div>
+                    <div class="tit">产品知识</div>
+                    <div class="link"><a href="{{url('article_cat/11')}}">珠宝知识</a></div>
+                    <div class="link"><a href="">房地产知识</a></div>
                 </div>
                 <div class="col-link">
                     <div class="tit">联系我们</div>
@@ -86,6 +84,6 @@
                 </div>
             </div>
         </div>
-    </div> -->
-    <div class="footer">安徽XXX网络科技有限公司 版权所有 Copyright © 2016-2018   备案号：皖ICP备123456789</div>
+    </div>
+    <!-- <div class="footer">安徽XXX网络科技有限公司 版权所有 Copyright © 2016-2018   备案号：皖ICP备123456789</div> -->
     <!--脚部-->

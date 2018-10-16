@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiController as Api;
 use App\User;
 use Auth;
 use App\Models\Order;
+use App\Models\Goods;
 
 class OrderDeleteForm extends Form{
 
@@ -95,7 +96,7 @@ class OrderDeleteForm extends Form{
     */
     public function successRespond(){
 
-        $this->save();
+        $this->save();//删除操作在这里执行了
     	$tag 		= 'success';
     	$info 		= 'success';
         $user       = Auth::user('user');
@@ -138,6 +139,21 @@ class OrderDeleteForm extends Form{
     public function persist()
     {
          $model       = Order::find($this->id);
+         // $model->order_goods->each(function($item,$key){
+         //    $item->update(['goods_number'=>1]);
+         // });
+
+         // dd();
+
+         $goods       = Goods::whereIn('id',$model->order_goods->pluck('goods_id'));
+
+         // dd($model->order_goods->pluck('goods_id'));
+
+
+         $goods->each(function($item,$key){
+            $item->update(['goods_number'=>$item->goods_number+1]);
+         });
+
          //删除订单产品
          $model->order_goods()->delete();
          //删除订单

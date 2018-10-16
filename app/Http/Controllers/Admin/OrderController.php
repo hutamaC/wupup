@@ -8,6 +8,7 @@
 
 
 use App\Models\Order;
+use App\Models\Goods;
 use App\Models\ArticleCat;
 use Phpstore\Crud\Crud;
 use Phpstore\Crud\TemplateForm;
@@ -388,6 +389,15 @@ class OrderController extends BaseController{
             $this->sysinfo->put('info','非法操作');
             return $this->sysinfo->info();
         }
+
+        $goods              = Goods::whereIn('id',$model->order_goods->pluck('goods_id'));
+
+         // dd($model->order_goods->pluck('goods_id'));
+
+
+         $goods->each(function($item,$key){
+            $item->update(['goods_number'=>$item->goods_number+1]);
+         });
 
         if($model->delete()){
 

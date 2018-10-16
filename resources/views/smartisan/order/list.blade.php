@@ -35,12 +35,12 @@
 					<td style="width: 100px;" class="text-center">￥@{{order.order_amount}}</td>
 					<td>@{{order.status}}</td>
 					<td style="width: 80px;">
-						<!-- <span class="ls-btn ls-btn-danger" v-on:click="delOrder(order.id)">
-							<i class="fa fa-times"></i>
-						</span> -->
 						<a v-bind:href="order.url" class="ls-btn">
-							<i class="fa fa-eye"></i>
+							<i class="fa fa-eye" title="订单详情"></i>
 						</a>
+						<span class="ls-btn ls-btn-danger" v-on:click="delOrder(order.id)"   v-if="order.pay_status!='1'&&order.shipping_status!='1'">
+							<i class="fa fa-times" title="取消订单"></i>
+						</span>
 					</td>
 				</tr>	
 			</table><!--/table-->
